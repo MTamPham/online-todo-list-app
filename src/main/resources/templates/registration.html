@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en" xmlns="http://www.w3.org/1999/xhtml" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <title>TODO list</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.15.4/css/all.css" integrity="sha384-DyZ88mC6Up2uqS4h/KRgHuoeGwBcD4Ng9SiP4dIRy0EXTlnuz47vAwmeGwVChigm" crossorigin="anonymous"/>
+</head>
+<body>
+<section class="vh-100">
+    <div class="container py-5 h-100">
+        <div class="row d-flex justify-content-center align-items-center h-100">
+            <div class="col-12 col-md-8 col-lg-6 col-xl-5">
+                <div class="card bg-dark text-white" style="border-radius: 1rem;">
+                    <div class="card-body p-5 text-center">
+                        <h2 class="fw-bold mb-2 text-uppercase">Register</h2>
+                        <p class="text-white-50 mb-5">Please enter your login and password!</p>
+
+                        <div class="alert alert-danger" th:if="${duplicateError}" th:text="${duplicateError}" role="alert">
+                        </div>
+                        <div class="alert alert-danger" th:if="${notMatchError}" th:text="${notMatchError}" role="alert">
+                        </div>
+
+                        <form method="post" th:action="@{/register}" id="registerForm">
+                            <div class="mb-3">
+                                <label for="username" class="visually-hidden">Username</label>
+                                <input type="text" class="form-control" name="username" id="username" required="true" placeholder="Username" />
+                            </div>
+                            <div class="mb-3">
+                                <label for="password" class="visually-hidden">Password</label>
+                                <input type="password" class="form-control" name="password" id="password" required="true" placeholder="Password" />
+                            </div>
+                            <div class="mb-3">
+                                <label for="confirm" class="visually-hidden">Confirm password</label>
+                                <input id="confirm" type="password" class="form-control" name="confirm" required="true" placeholder="Confirm Password" />
+                            </div>
+                            <div class="mb-3">
+                                <label for="fullName" class="visually-hidden">Full name</label>
+                                <input id="fullName" type="text" class="form-control" name="fullName" required="true" placeholder="Full Name" /><br/>
+                            </div>
+                            <button type="submit" class="btn btn-secondary mb-3">Register</button>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM" crossorigin="anonymous"></script>
+<script src="https://code.jquery.com/jquery-3.6.0.slim.min.js" integrity="sha256-u7e5khyithlIdTpu22PHhENmPcRdFiHRjhAuHcs05RI=" crossorigin="anonymous"></script>
+<script src="https://use.fontawesome.com/releases/v5.15.4/js/all.js" integrity="sha384-rOA1PnstxnOBLzCLMcre8ybwbTmemjzdNlILg8O7z1lUkLXozs4DHonlDtnE7fpc" crossorigin="anonymous"></script>
+</body>
+</html>
